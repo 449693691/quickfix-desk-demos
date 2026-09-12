@@ -4,6 +4,8 @@ A new, original notes-interface study with working interactions and browser
 storage. Created with AI assistance for Seda's public portfolio; it is a
 demonstration rather than a past client project.
 
+[Open the interactive sample](https://449693691.github.io/quickfix-desk-demos/).
+
 ![Desktop interface](preview-desktop.png)
 
 The interface supports creating and editing notes, searching title/body text,
