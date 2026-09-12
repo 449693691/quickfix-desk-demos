@@ -19,6 +19,7 @@ These contributions were submitted on September 12, 2026 and are awaiting review
 
 - [Gambit thread-interruption fix](https://github.com/gambit/gambit/pull/1047): a focused runtime correction with a bounded regression test and comparisons between the original and patched versions.
 - [Gatus deployment catalog for Plural](https://github.com/pluralsh/scaffolds/pull/83): persistent health-check history, configuration templates, three contract fixtures and Helm rendering checks.
+- [Private ntfy catalog for Plural](https://github.com/pluralsh/scaffolds/pull/87): persistent notification/account storage, authenticated setup, three contract fixtures and checks against the actual Helm chart.
 
 ## New demonstrations
 
