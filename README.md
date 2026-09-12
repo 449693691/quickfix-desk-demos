@@ -1,4 +1,4 @@
-# QuickFix Desk — small data and Python repairs
+# QuickFix Desk — small data, code and image edits
 
 Short, clearly scoped technical work with a result you can check before paying.
 
@@ -7,16 +7,17 @@ Short, clearly scoped technical work with a result you can check before paying.
 | CSV import repair | US$20 | Corrected export, rejected-row report, and repeatable script |
 | One Python bug | US$35 | Focused patch, regression check, and run instructions |
 | English / Simplified Chinese UI text | US$25 | Up to 300 source words with consistent terminology |
+| Portrait background replacement | US$50 | One agreed edit, with a preview to check the details |
 
-Send the error, expected result and a small sanitized sample through the platform where you found this offer. Scope, total price, acceptance check and delivery time are agreed before work starts. A small accepted task can usually be delivered within 2–4 hours of receiving the necessary material. One correction within the agreed scope is included. Payment is through PayPal for goods/services, after the agreed result is delivered and checked. The payment address is shared privately.
+Send a small sanitized sample, the result you want and your deadline. I will confirm a fixed price and delivery time before work starts. Suitable small tasks can be scoped for a 2–4 hour delivery window after the material is reviewed. One correction within the agreed scope is included. PayPal goods/services is accepted after you check the delivered result; the payment address is shared privately.
 
-Work and communication use an AI assistant. Validation is described with the delivery; no human-only certification, past client history or professional credentials are claimed. Please confirm that this workflow fits your project, and do not send passwords or private customer data.
+Work and communication are AI-assisted. Each delivery includes the relevant tests or a before/after comparison and brief usage notes, so you can check the result.
 
-## Reproducible sample
+## New demonstrations
 
 An additional [portrait background-editing demonstration](photo-editing-demo/README.md) uses a fictional AI-generated subject and shows the input beside the edited result.
 
-This is a new demonstration made for this offer, not a previous client job.
+### CSV validation and export
 
 `csv_guard.py` converts a CSV into JSON while refusing to silently discard values from malformed rows. It preserves leading-zero IDs and raw values, reports duplicate column names, and quarantines rows with too many or too few columns. It takes an explicit encoding instead of guessing. Existing output files are never overwritten.
 
