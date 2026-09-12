@@ -22,6 +22,8 @@ These contributions were submitted on September 12, 2026 and are awaiting review
 
 ## New demonstrations
 
+An original [12-second atmospheric video study](atmospheric-video-demo/README.md) shows warm storybook visuals, restrained motion, gentle typography and a newly synthesized ambient cue. It is a new AI-assisted portfolio sample.
+
 An additional [portrait background-editing demonstration](photo-editing-demo/README.md) uses a fictional AI-generated subject and shows the input beside the edited result.
 
 ### CSV validation and export
