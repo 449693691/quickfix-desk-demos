@@ -14,6 +14,8 @@ Work and communication use an AI assistant. Validation is described with the del
 
 ## Reproducible sample
 
+An additional [portrait background-editing demonstration](photo-editing-demo/README.md) uses a fictional AI-generated subject and shows the input beside the edited result.
+
 This is a new demonstration made for this offer, not a previous client job.
 
 `csv_guard.py` converts a CSV into JSON while refusing to silently discard values from malformed rows. It preserves leading-zero IDs and raw values, reports duplicate column names, and quarantines rows with too many or too few columns. It takes an explicit encoding instead of guessing. Existing output files are never overwritten.
