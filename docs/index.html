@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="木间：一个可以新建、编辑、搜索和收藏笔记的交互界面样例。Seda 以 AI 协作制作。">
+  <meta name="theme-color" content="#f4f5ef">
+  <title>木间 · 给想法留一点空间</title>
+  <link rel="icon" href="assets/leaf.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">跳转到工作区</a>
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M19 4C10 2 4 7 5 13s10 7 14-9Z"/><path d="m5 20 8-10"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"/></symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v12h14V8M10 12h4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5m5-5-5 5 5 5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v4h16v-4"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m15 4 5 5M4 20l5-1L21 7l-5-5L4 14Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M3 4h5a4 4 0 0 1 4 4v13a4 4 0 0 0-4-3H3Zm18 0h-5a4 4 0 0 0-4 4v13a4 4 0 0 1 4-3h5Z"/></symbol>
+  </svg>
+  <aside class="sidebar" aria-label="笔记导航">
+    <a class="brand" href="./"><span class="brand-mark"><svg><use href="#i-leaf"/></svg></span><span>木间<small>MOJIAN NOTES</small></span></a>
+    <div class="space-label">我的空间 <span class="tiny-dot"></span></div>
+    <nav class="nav-items">
+      <button class="nav-item active" data-filter="all"><svg><use href="#i-grid"/></svg>全部笔记<span data-count="all">6</span></button>
+      <button class="nav-item" data-filter="starred"><svg><use href="#i-star"/></svg>我的收藏<span data-count="starred">2</span></button>
+      <button class="nav-item" data-filter="archived"><svg><use href="#i-archive"/></svg>已归档<span data-count="archived">1</span></button>
+    </nav>
+    <div class="space-label notebook-label">主题手帐</div>
+    <nav class="nav-items topics">
+      <button class="nav-item" data-filter="灵感"><i class="topic-dot sage"></i>灵感碎片<span data-count="灵感">3</span></button>
+      <button class="nav-item" data-filter="阅读"><i class="topic-dot clay"></i>阅读与摘录<span data-count="阅读">2</span></button>
+      <button class="nav-item" data-filter="生活"><i class="topic-dot gold"></i>日常生活<span data-count="生活">1</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="quiet-card"><svg><use href="#i-leaf"/></svg><p>不必每个想法，<br>都有一个去处。</p><span>先把它写下来就好。</span><div class="quiet-line"></div></div>
+      <div class="profile"><span class="avatar">S</span><span>Seda 的手帐<small>个人空间 · 交互样例</small></span><span class="profile-dot" aria-hidden="true"></span></div>
+    </div>
+  </aside>
+  <main class="workspace" id="workspace" tabindex="-1">
+    <header class="topbar"><div class="breadcrumb"><span class="mobile-brand">木间</span><span class="desktop-crumb">我的空间 <b>/</b></span> <span id="crumb">全部笔记</span></div><div class="topbar-right"><span class="local-badge"><span></span>浏览器内保存</span><span class="sample-badge">Seda · AI 协作样例</span></div></header>
+    <section class="heading-area">
+      <div><div class="eyebrow">A LITTLE ROOM FOR YOUR THOUGHTS</div><h1>给想法留一点空间<span>。</span></h1><p>随手记下的片刻，也值得被好好收藏。</p></div>
+      <button id="new-note" class="primary-button"><svg><use href="#i-plus"/></svg>新建笔记</button>
+    </section>
+    <div class="mobile-filters"><label for="mobile-filter">查看</label><select id="mobile-filter"><option value="all">全部笔记</option><option value="starred">我的收藏</option><option value="archived">已归档</option><option value="灵感">灵感碎片</option><option value="阅读">阅读与摘录</option><option value="生活">日常生活</option></select></div>
+    <section class="desk" aria-label="笔记工作台">
+      <div class="note-browser">
+        <label class="search-box"><svg><use href="#i-search"/></svg><input id="search" type="search" placeholder="寻找一个想法…" aria-label="搜索笔记"><kbd>Ctrl K</kbd></label>
+        <div class="list-heading"><h2 id="list-title">全部笔记 <span id="visible-count">6</span></h2><span>最近编辑</span></div>
+        <div id="note-list" class="note-list" aria-label="笔记列表"></div>
+        <div id="empty-list" class="empty-list" hidden><svg><use href="#i-search"/></svg><h3>这里还没有笔记</h3><p id="empty-message">写下第一个想法吧。</p><button id="clear-search" class="text-button">清除搜索</button></div>
+        <div class="list-footer"><svg><use href="#i-leaf"/></svg><span>小小的记录，慢慢积累。</span></div>
+      </div>
+      <article class="editor" id="editor" aria-label="当前笔记">
+        <div class="editor-toolbar"><button id="back-to-list" class="icon-button mobile-back" aria-label="返回笔记列表"><svg><use href="#i-back"/></svg></button><span id="save-status" class="save-status" role="status"><svg><use href="#i-check"/></svg><span>已保存</span></span><div class="editor-actions"><div class="view-switch" aria-label="笔记视图"><button id="edit-mode" aria-pressed="true">编辑</button><button id="preview-mode" aria-pressed="false">阅读</button></div><span class="tool-divider"></span><button id="star-note" class="icon-button" aria-label="收藏笔记" aria-pressed="false" title="收藏笔记"><svg><use href="#i-star"/></svg></button><button id="archive-note" class="icon-button" aria-label="归档笔记" title="归档笔记"><svg><use href="#i-archive"/></svg></button><button id="export-note" class="icon-button" aria-label="导出笔记" title="导出为文本"><svg><use href="#i-download"/></svg></button></div></div>
+        <div class="editor-scroll">
+          <div class="note-cover" id="note-cover"><img src="assets/forest.png" alt="晨光穿过森林，照亮一条通向溪边小屋的小径" width="1672" height="941"><span>THE QUIET COLLECTION <svg><use href="#i-leaf"/></svg></span></div>
+          <div class="note-paper"><div class="note-meta"><label class="category-label"><span class="sr-only">笔记主题</span><select id="note-category" aria-label="笔记主题"><option>灵感</option><option>阅读</option><option>生活</option></select></label><span id="note-date"></span><span class="meta-dot">·</span><span id="word-count">0 字</span></div><label class="sr-only" for="note-title">笔记标题</label><input id="note-title" class="note-title" placeholder="给这个想法起个名字" maxlength="100"><div class="paper-divider"></div><label class="sr-only" for="note-body">笔记正文</label><textarea id="note-body" class="note-body" placeholder="从一句话开始，也很好。" spellcheck="false"></textarea><div id="note-preview" class="note-preview" hidden></div><div class="paper-bottom"><span>把日子过成自己喜欢的样子。</span><svg><use href="#i-leaf"/></svg></div></div>
+        </div>
+      </article>
+      <div id="no-selection" class="no-selection" hidden><svg><use href="#i-book"/></svg><h3>留一页空白</h3><p>选择一篇笔记，或者写下新的想法。</p><button class="text-button" id="empty-new">写点什么 <svg><use href="#i-arrow"/></svg></button></div>
+    </section>
+    <footer class="workspace-footer"><span>原创界面与示例内容 · AI 协作制作 · 不连接云端笔记服务</span><a href="https://github.com/449693691/quickfix-desk-demos">查看源代码与其他样例 <span aria-hidden="true">↗</span></a></footer>
+  </main>
+  <div id="toast" class="toast" role="status" hidden><span id="toast-message"></span><button id="undo-archive" hidden>撤销</button></div>
+</body>
+</html>
