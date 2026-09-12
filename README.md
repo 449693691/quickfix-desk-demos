@@ -13,6 +13,13 @@ Send a small sanitized sample, the result you want and your deadline. I will con
 
 Work and communication are AI-assisted. Each delivery includes the relevant tests or a before/after comparison and brief usage notes, so you can check the result.
 
+## Recent open-source submissions
+
+These contributions were submitted on September 12, 2026 and are awaiting review. Each PR explains the implementation, checks and limits of the validation.
+
+- [Gambit thread-interruption fix](https://github.com/gambit/gambit/pull/1047): a focused runtime correction with a bounded regression test and comparisons between the original and patched versions.
+- [Gatus deployment catalog for Plural](https://github.com/pluralsh/scaffolds/pull/83): persistent health-check history, configuration templates, three contract fixtures and Helm rendering checks.
+
 ## New demonstrations
 
 An additional [portrait background-editing demonstration](photo-editing-demo/README.md) uses a fictional AI-generated subject and shows the input beside the edited result.
