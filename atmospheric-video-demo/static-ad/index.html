@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Quiet Light — portrait advertisement study</title>
+  <style>
+    @font-face { font-family: Fraunces; src: url('assets/fraunces-300.ttf'); font-weight: 300; font-display: block; }
+    @font-face { font-family: 'DM Sans'; src: url('assets/dm-sans-400.ttf'); font-weight: 400; font-display: block; }
+    @font-face { font-family: 'DM Sans'; src: url('assets/dm-sans-900.ttf'); font-weight: 900; font-display: block; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #e9e5d8; color: #173d33; }
+    body { font-family: 'DM Sans', sans-serif; }
+    .ad { width: 1080px; height: 1350px; overflow: hidden; position: relative; background: #f4f0e5; }
+    .masthead { height: 135px; padding: 54px 64px 0; display: flex; justify-content: space-between; align-items: flex-start; }
+    .brand { font-family: Fraunces, Georgia, serif; font-size: 47px; font-weight: 300; letter-spacing: -.035em; line-height: 1; }
+    .edition { text-align: right; font-size: 18px; letter-spacing: .16em; font-weight: 900; line-height: 1.45; }
+    .heading { padding: 9px 64px 30px; height: 300px; position: relative; }
+    h1 { margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 300; font-size: 111px; letter-spacing: -.058em; line-height: 1.065; }
+    .photo { display: block; width: 1080px; height: 641px; object-fit: cover; object-position: 68% 54%; }
+    .film-note { position: absolute; left: 64px; top: 1029px; margin: 0; color: #fff4d9; font-size: 18px; letter-spacing: .11em; font-weight: 900; }
+    .photo-shade { position: absolute; top: 970px; left: 0; width: 1080px; height: 106px; background: linear-gradient(transparent, rgba(16,44,39,.76)); pointer-events: none; }
+    .footer { padding: 44px 64px 0; }
+    .invitation { display: flex; justify-content: space-between; gap: 30px; align-items: center; }
+    .description { margin: 0; font-size: 29px; line-height: 1.4; max-width: 510px; letter-spacing: -.025em; }
+    .cta { display: inline-flex; align-items: center; justify-content: center; gap: 22px; min-width: 321px; height: 78px; padding: 0 24px; background: #173d33; color: #fff4d9; text-decoration: none; font-weight: 900; font-size: 26px; border-radius: 2px; white-space: nowrap; }
+    .cta svg { width: 24px; height: 24px; flex: 0 0 auto; }
+    .cta:focus-visible { outline: 4px solid #9b6b30; outline-offset: 6px; }
+    .credits { margin: 42px 0 0; padding-top: 22px; border-top: 1px solid #c6c7b8; display: flex; justify-content: space-between; font-size: 17px; letter-spacing: .025em; color: #40584b; }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <main class="ad" aria-label="Quiet Light portrait advertisement, an original portfolio study by Seda">
+    <header class="masthead">
+      <div class="brand">Quiet Light</div>
+      <div class="edition">SEDA<br>VISUAL STUDY 01</div>
+    </header>
+    <section class="heading">
+      <h1>Small stories.<br>Room to breathe.</h1>
+    </section>
+    <img class="photo" src="assets/forest-bg.png" alt="Golden light over a woodland cottage, stone bridge and winding forest path.">
+    <div class="photo-shade" aria-hidden="true"></div>
+    <p class="film-note">A MOMENT OF WONDER</p>
+    <footer class="footer">
+      <div class="invitation">
+        <p class="description">An original world.<br>Twelve seconds to wander.</p>
+        <a class="cta" href="../quiet-light-720p.mp4" aria-label="Watch the original twelve-second Quiet Light film">
+          Watch the film
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="credits"><span>AI-assisted imagery · Original sound</span><span>Portfolio concept · 12 sec</span></p>
+    </footer>
+  </main>
+</body>
+</html>

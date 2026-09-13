@@ -30,7 +30,7 @@ An original [interactive notes interface, Mojian / 木间](https://449693691.git
 
 The interface supports [English](https://449693691.github.io/quickfix-desk-demos/?lang=en) and [Chinese](https://449693691.github.io/quickfix-desk-demos/?lang=zh). Switching interface language preserves existing notes as written.
 
-An original [12-second atmospheric video study](atmospheric-video-demo/README.md) shows warm storybook visuals, restrained motion, gentle typography and a newly synthesized ambient cue. It is a new AI-assisted portfolio sample.
+An original [12-second atmospheric video study and portrait advertisement](atmospheric-video-demo/README.md) show warm storybook visuals, restrained motion, gentle typography and a newly synthesized ambient cue. The 1080×1350 static layout reuses the same scene with a clear viewing action. These are AI-assisted portfolio samples.
 
 An additional [portrait background-editing demonstration](photo-editing-demo/README.md) uses a fictional AI-generated subject and shows the input beside the edited result.
 
