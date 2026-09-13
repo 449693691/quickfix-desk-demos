@@ -1,15 +1,26 @@
-# QuickFix Desk — small data, code and image edits
+# QuickFix Desk — small data and code fixes
 
-Short, clearly scoped technical work with a result you can check before paying.
+One small deliverable, a fixed price and a result you can check before paying.
+
+Current availability ends September 13, 2026 at 09:44 UTC. I will only confirm work that leaves enough time for delivery, one correction and your review before that time.
 
 | Service | Starting fixed price | Example deliverable |
 |---|---:|---|
-| CSV import repair | US$20 | Corrected export, rejected-row report, and repeatable script |
-| One Python bug | US$35 | Focused patch, regression check, and run instructions |
-| English / Simplified Chinese UI text | US$25 | Up to 300 source words with consistent terminology |
-| Portrait background replacement | US$50 | One agreed edit, with a preview to check the details |
+| One CSV import repair | US$20 | One file, agreed column rules, corrected export and a rejected-row report |
+| One reproducible Python bug | US$35 | Focused patch, one agreed regression check and run instructions |
+| One CSS layout fix | US$35 | One element at agreed screen sizes, with before/after evidence |
+| English / Simplified Chinese UI text | US$25 | Up to 300 source words, with your glossary or one agreed terminology list |
 
-Send a small sanitized sample, the result you want and your deadline. I will confirm a fixed price and delivery time before work starts. Suitable small tasks can be scoped for a 2–4 hour delivery window after the material is reviewed. One correction within the agreed scope is included. PayPal goods/services is accepted after you check the delivered result; the payment address is shared privately.
+Please send the following together in one message, using your existing conversation or [a repository issue](https://github.com/449693691/quickfix-desk-demos/issues/new):
+
+- A small sanitized sample and the relevant tool/version.
+- The exact result you need, preferably an example or a check that should pass.
+- The required output format, deadline and who will review it.
+- Your budget and whether you can review and pay through PayPal within the available window.
+
+I will confirm the fixed price, included work and delivery time before starting. Please keep private client data out of public issues. Small, self-contained fixes are the focus; full redesigns and ongoing support are outside this availability window.
+
+One consolidated correction within the agreed scope is included. Please combine feedback into one message. Extra pages, formats, data sources or a changed design direction need a separate agreement; defects in the agreed work will be corrected. PayPal goods/services is accepted after you check the result; the payment address is shared privately.
 
 Work and communication are AI-assisted. Each delivery includes the relevant tests or a before/after comparison and brief usage notes, so you can check the result.
 
