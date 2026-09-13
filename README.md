@@ -22,6 +22,7 @@ These contributions were submitted on September 12–13, 2026 and are awaiting r
 - [Private ntfy catalog for Plural](https://github.com/pluralsh/scaffolds/pull/87): persistent notification/account storage, authenticated setup, three contract fixtures and checks against the actual Helm chart.
 - [Private Memos catalog for Plural](https://github.com/pluralsh/scaffolds/pull/98): persistent notes, admin bootstrap and registration policy, three contract fixtures, Kubernetes schema checks and native application restart tests.
 - [Authenticated Pushgateway catalog for Plural](https://github.com/pluralsh/scaffolds/pull/111): existing-Secret authentication, persistent batch metrics, three contract fixtures and a reproducible native authentication/update/restart check.
+- [Internal Apache Tika catalog for Plural](https://github.com/pluralsh/scaffolds/pull/112): bounded document extraction, namespace-and-pod network policy, three contract fixtures and native Unicode/document/limit checks.
 
 ## New demonstrations
 
