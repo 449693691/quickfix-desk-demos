@@ -15,12 +15,13 @@ Work and communication are AI-assisted. Each delivery includes the relevant test
 
 ## Recent open-source submissions
 
-These contributions were submitted on September 12, 2026 and are awaiting review. Each PR explains the implementation, checks and limits of the validation.
+These contributions were submitted on September 12–13, 2026 and are awaiting review. Each PR explains the implementation, checks and limits of the validation.
 
 - [Gambit thread-interruption fix](https://github.com/gambit/gambit/pull/1047): a focused runtime correction with a bounded regression test and comparisons between the original and patched versions.
 - [Gatus deployment catalog for Plural](https://github.com/pluralsh/scaffolds/pull/83): persistent health-check history, configuration templates, three contract fixtures and Helm rendering checks.
 - [Private ntfy catalog for Plural](https://github.com/pluralsh/scaffolds/pull/87): persistent notification/account storage, authenticated setup, three contract fixtures and checks against the actual Helm chart.
 - [Private Memos catalog for Plural](https://github.com/pluralsh/scaffolds/pull/98): persistent notes, admin bootstrap and registration policy, three contract fixtures, Kubernetes schema checks and native application restart tests.
+- [Authenticated Pushgateway catalog for Plural](https://github.com/pluralsh/scaffolds/pull/111): existing-Secret authentication, persistent batch metrics, three contract fixtures and a reproducible native authentication/update/restart check.
 
 ## New demonstrations
 
