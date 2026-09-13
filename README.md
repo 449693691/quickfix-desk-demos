@@ -26,6 +26,8 @@ These contributions were submitted on September 12, 2026 and are awaiting review
 
 An original [interactive notes interface, Mojian / 木间](https://449693691.github.io/quickfix-desk-demos/), includes working editing, search, favorites, archive/undo and local storage, with desktop and narrow-screen layouts. [Source and verification notes](docs/README.md).
 
+The interface supports [English](https://449693691.github.io/quickfix-desk-demos/?lang=en) and [Chinese](https://449693691.github.io/quickfix-desk-demos/?lang=zh). Switching interface language preserves existing notes as written.
+
 An original [12-second atmospheric video study](atmospheric-video-demo/README.md) shows warm storybook visuals, restrained motion, gentle typography and a newly synthesized ambient cue. It is a new AI-assisted portfolio sample.
 
 An additional [portrait background-editing demonstration](photo-editing-demo/README.md) uses a fictional AI-generated subject and shows the input beside the edited result.

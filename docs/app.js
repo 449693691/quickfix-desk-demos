@@ -2,6 +2,8 @@
 
 const STORAGE_KEY = 'mojian-notes-demo-v1';
 const $ = (id) => document.getElementById(id);
+const language = window.mojianLanguage;
+const t = language.text;
 const labels = { all: '全部笔记', starred: '我的收藏', archived: '已归档', 灵感: '灵感碎片', 阅读: '阅读与摘录', 生活: '日常生活' };
 const seedNotes = [
   { id: 'september', title: '写给九月的一页', category: '灵感', starred: true, archived: false, cover: true, updated: '2026-09-13T06:30:00+08:00', body: '今天醒得比平时早了一点。窗外的光很轻，像有人把世界的音量调小了。\n\n想试着把注意力还给那些很小的事情：\n一杯慢慢变凉的茶，一段没有目的的散步，\n还有脑海里突然冒出来、还来不及命名的想法。\n\n不用急着把每一页写满。\n留一点空白，新的东西才有地方生长。' },
@@ -13,7 +15,7 @@ const seedNotes = [
   { id: 'august', title: '八月，先收在这里', category: '生活', starred: false, archived: true, cover: false, updated: '2026-08-31T21:00:00+08:00', body: '这个月留下了几件小事。\n\n它们不需要每天被看见，但也不用被删掉。\n归档的意义，大概就是给过去找一个安静的位置。' },
 ];
 
-let notes = seedNotes.map((note) => ({ ...note }));
+let notes = seedNotes.map((note) => language.seed(note));
 let selectedId = notes[0].id;
 let filter = 'all';
 let query = '';
@@ -39,10 +41,10 @@ function sizeBody() {
   body.style.height = 'auto';
   body.style.height = `${Math.max(205, body.scrollHeight)}px`;
 }
-function formatDate(value) { return new Intl.DateTimeFormat('zh-CN', { month: 'long', day: 'numeric' }).format(new Date(value)); }
+function formatDate(value) { return new Intl.DateTimeFormat(language.locale, { month: 'long', day: 'numeric' }).format(new Date(value)); }
 function setSaveStatus() {
   $('save-status').classList.toggle('error', !canStore);
-  $('save-status').querySelector('span').textContent = canStore ? '已保存' : '未能保存，请导出';
+  $('save-status').querySelector('span').textContent = t(canStore ? '已保存' : '未能保存，请导出');
 }
 function persist() {
   try {
@@ -82,24 +84,24 @@ function renderList() {
   for (const note of visible) {
     const button = document.createElement('button');
     button.className = `note-card${note.id === selectedId ? ' selected' : ''}`;
-    button.setAttribute('aria-label', `打开笔记：${note.title || '无标题笔记'}`);
+    button.setAttribute('aria-label', `${t('打开笔记：')}${note.title || t('无标题笔记')}`);
     button.setAttribute('aria-pressed', String(note.id === selectedId));
     const title = addText(button, 'card-title', '');
-    addText(title, 'title-text', note.title || '无标题笔记');
+    addText(title, 'title-text', note.title || t('无标题笔记'));
     if (note.starred) addStar(title);
-    addText(button, 'card-excerpt', note.body.trim() || '还没有正文，从一句话开始。');
+    addText(button, 'card-excerpt', note.body.trim() || t('还没有正文，从一句话开始。'));
     const footer = addText(button, 'card-footer', '');
-    addText(footer, 'card-category', note.category);
+    addText(footer, 'card-category', t(note.category));
     addText(footer, 'card-date', formatDate(note.updated));
     button.addEventListener('click', () => selectNote(note.id, true));
     fragment.append(button);
   }
   $('note-list').replaceChildren(fragment);
   $('visible-count').textContent = visible.length;
-  $('list-title').firstChild.textContent = `${labels[filter]} `;
-  $('crumb').textContent = labels[filter];
+  $('list-title').firstChild.textContent = `${t(labels[filter])} `;
+  $('crumb').textContent = t(labels[filter]);
   $('empty-list').hidden = visible.length > 0;
-  $('empty-message').textContent = query ? '没有找到相符的标题或正文，换个词试试。' : '这里还没有笔记，新的想法随时可以开始。';
+  $('empty-message').textContent = t(query ? '没有找到相符的标题或正文，换个词试试。' : '这里还没有笔记，新的想法随时可以开始。');
   $('clear-search').hidden = !query;
   for (const count of document.querySelectorAll('[data-count]')) {
     const mode = count.dataset.count;
@@ -119,16 +121,16 @@ function renderEditor() {
   if (!note) return;
   $('note-title').value = note.title;
   $('note-body').value = note.body;
-  $('note-preview').textContent = note.body || '这一页还是空白。';
+  $('note-preview').textContent = note.body || t('这一页还是空白。');
   $('note-category').value = note.category;
   $('note-date').textContent = formatDate(note.updated);
-  $('word-count').textContent = `${Array.from(note.body.replace(/\s/g, '')).length} 字`;
+  $('word-count').textContent = language.count(note.body);
   $('note-cover').hidden = !note.cover;
   $('star-note').setAttribute('aria-pressed', String(note.starred));
-  $('star-note').setAttribute('aria-label', note.starred ? '取消收藏' : '收藏笔记');
-  $('star-note').title = note.starred ? '取消收藏' : '收藏笔记';
-  $('archive-note').setAttribute('aria-label', note.archived ? '移出归档' : '归档笔记');
-  $('archive-note').title = note.archived ? '移出归档' : '归档笔记';
+  $('star-note').setAttribute('aria-label', t(note.starred ? '取消收藏' : '收藏笔记'));
+  $('star-note').title = t(note.starred ? '取消收藏' : '收藏笔记');
+  $('archive-note').setAttribute('aria-label', t(note.archived ? '移出归档' : '归档笔记'));
+  $('archive-note').title = t(note.archived ? '移出归档' : '归档笔记');
   $('note-body').hidden = preview;
   $('note-preview').hidden = !preview;
   $('note-title').readOnly = preview;
@@ -161,7 +163,8 @@ function changeFilter(value) {
 }
 function notify(message, allowUndo = false) {
   clearTimeout(toastTimer);
-  $('toast-message').textContent = message;
+  $('toast-message').dataset.original = message;
+  $('toast-message').textContent = t(message);
   $('undo-archive').hidden = !allowUndo;
   $('toast').hidden = false;
   toastTimer = setTimeout(() => { $('toast').hidden = true; }, allowUndo ? 10000 : 4000);
@@ -188,7 +191,7 @@ for (const [id, field] of [['note-title', 'title'], ['note-body', 'body'], ['not
     note[field] = event.target.value;
     note.updated = new Date().toISOString();
     if (field === 'category' && !matchesFilter(note)) filter = note.category;
-    $('word-count').textContent = `${Array.from(note.body.replace(/\s/g, '')).length} 字`;
+    $('word-count').textContent = language.count(note.body);
     $('note-date').textContent = formatDate(note.updated);
     if (field === 'body') sizeBody();
     renderList(); persist();
@@ -212,11 +215,17 @@ $('undo-archive').addEventListener('click', () => {
 });
 $('export-note').addEventListener('click', () => {
   const note = currentNote(); if (!note) return;
-  const blob = new Blob([`${note.title || '无标题笔记'}\n\n${note.body}\n`], { type: 'text/plain;charset=utf-8' });
+  const blob = new Blob([`${note.title || t('无标题笔记')}\n\n${note.body}\n`], { type: 'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement('a');
-  anchor.href = url; anchor.download = `${(note.title || '无标题笔记').replace(/[<>:"/\\|?*\u0000-\u001f]/g, '-').slice(0,80)}.txt`;
+  anchor.href = url; anchor.download = `${(note.title || t('无标题笔记')).replace(/[<>:"/\\|?*\u0000-\u001f]/g, '-').slice(0,80)}.txt`;
   anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); notify('已导出这篇笔记');
+});
+$('interface-language').addEventListener('change', (event) => {
+  language.setLocale(event.target.value);
+  renderList();
+  renderEditor();
+  if (!$('toast').hidden) $('toast-message').textContent = t($('toast-message').dataset.original);
 });
 document.addEventListener('keydown', (event) => {
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
